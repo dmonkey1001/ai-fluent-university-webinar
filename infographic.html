@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI in Higher Ed: From Literacy to Fluency</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #F0F4F8;
+        }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 300px;
+            max-height: 400px;
+        }
+        @media (min-width: 768px) {
+            .chart-container {
+                height: 350px;
+            }
+        }
+        .flow-line {
+            width: 2px;
+            background-color: #1E96FC;
+            height: 50px;
+            margin: 0 auto;
+        }
+        .flow-arrow {
+            width: 0;
+            height: 0;
+            border-left: 8px solid transparent;
+            border-right: 8px solid transparent;
+            border-top: 12px solid #1E96FC;
+            margin: 0 auto;
+        }
+        .strategy-line {
+            position: absolute;
+            background-color: #72B5F2;
+            z-index: 0;
+        }
+    </style>
+</head>
+<body class="text-gray-800">
+
+    <div class="container mx-auto p-4 md:p-8 max-w-7xl">
+
+        <header class="text-center py-8 md:py-12">
+            <h1 class="text-4xl md:text-6xl font-extrabold text-[#00509D]">AI Potential in Higher Education</h1>
+            <p class="text-xl md:text-2xl mt-4 text-[#1E96FC] font-medium">The Crucial Shift from Literacy to Fluency</p>
+            <p class="max-w-3xl mx-auto mt-4 text-gray-600">
+                Join higher education leaders to explore how we prepare entire campuses for the age of AI. This is a journey from basic understanding to deep, meaningful, and innovative application.
+            </p>
+        </header>
+
+        <main class="space-y-12">
+            
+            <section id="literacy-vs-fluency" class="bg-white rounded-lg shadow-lg p-6 md:p-8">
+                <h2 class="text-3xl font-bold text-center text-[#00509D] mb-6">Defining the Spectrum</h2>
+                <p class="text-center max-w-2xl mx-auto mb-8 text-gray-600">AI Literacy is the foundation—understanding the 'what' and 'why'. AI Fluency is the goal—mastering the 'how' for strategic innovation and responsible application across all campus roles.</p>
+                <div class="grid grid-cols-1 md:grid-cols-3 items-center gap-4 text-center">
+                    <div class="bg-[#CDEBFF] p-6 rounded-lg">
+                        <h3 class="text-2xl font-bold text-[#00509D]">AI Literacy</h3>
+                        <p class="mt-2 text-gray-700"><strong>Knowing About AI</strong></p>
+                        <ul class="text-left mt-4 space-y-2 list-inside list-disc marker:text-[#1E96FC]">
+                            <li>Defining key AI terms</li>
+                            <li>Recognizing AI-powered tools</li>
+                            <li>Awareness of basic capabilities</li>
+                            <li>Understanding ethical implications</li>
+                        </ul>
+                    </div>
+                    <div class="flex flex-col items-center">
+                        <div class="flow-line"></div>
+                        <div class="flow-arrow"></div>
+                        <p class="text-[#00509D] font-bold my-2">EVOLUTION</p>
+                        <div class="flow-line"></div>
+                    </div>
+                    <div class="bg-[#CDEBFF] p-6 rounded-lg">
+                        <h3 class="text-2xl font-bold text-[#00509D]">AI Fluency</h3>
+                        <p class="mt-2 text-gray-700"><strong>Working With AI</strong></p>
+                         <ul class="text-left mt-4 space-y-2 list-inside list-disc marker:text-[#1E96FC]">
+                            <li>Applying AI to solve problems</li>
+                            <li>Critically evaluating AI outputs</li>
+                            <li>Adapting pedagogy and workflows</li>
+                            <li>Innovating within a discipline</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+                
+                <section id="stakeholders" class="bg-white rounded-lg shadow-lg p-6 md:p-8 h-full">
+                    <h2 class="text-3xl font-bold text-center text-[#00509D] mb-2">A Campus-Wide Transformation</h2>
+                    <p class="text-center max-w-2xl mx-auto mb-6 text-gray-600">The shift to AI fluency impacts every corner of the institution. This isn't just a tech initiative; it's a fundamental change in how we teach, learn, research, and operate.</p>
+                    <div class="chart-container">
+                        <canvas id="stakeholderChart"></canvas>
+                    </div>
+                </section>
+
+                <section id="adoption-trend" class="bg-white rounded-lg shadow-lg p-6 md:p-8 h-full">
+                    <h2 class="text-3xl font-bold text-center text-[#00509D] mb-2">Projected AI Adoption in Higher Ed</h2>
+                    <p class="text-center max-w-2xl mx-auto mb-6 text-gray-600">The integration of AI tools and methodologies is accelerating. Institutions that proactively build fluency will gain a significant advantage in educational outcomes and operational efficiency.</p>
+                    <div class="chart-container">
+                        <canvas id="adoptionChart"></canvas>
+                    </div>
+                </section>
+
+            </div>
+            
+            <section id="strategy-blueprint" class="bg-white rounded-lg shadow-lg p-6 md:p-8">
+                 <h2 class="text-3xl font-bold text-center text-[#00509D] mb-2">Blueprint for an AI-Fluent Campus</h2>
+                 <p class="text-center max-w-2xl mx-auto mb-10 text-gray-600">A successful transition requires a multi-faceted strategy that coordinates efforts across technology, pedagogy, and policy.</p>
+                 <div class="relative flex flex-wrap justify-center items-center gap-8 md:mt-32 md:mb-24">
+                    <div class="absolute w-40 h-40 md:w-56 md:h-56 border-4 border-dashed border-[#1E96FC] rounded-full"></div>
+                    <div class="w-40 h-40 md:w-56 md:h-56 bg-[#00509D] rounded-full flex justify-center items-center text-white text-center p-4 z-10">
+                        <span class="text-xl md:text-2xl font-bold">Campus-Wide AI Strategy</span>
+                    </div>
+                    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full z-0">
+                        <div class="strategy-line" style="width: 2px; height: 35%; top: -10%; left: 50%; transform: translateX(-50%) rotate(0deg); transform-origin: bottom;"></div>
+                        <div class="strategy-line" style="width: 2px; height: 35%; top: 50%; left: 75%; transform: translateY(-50%) rotate(90deg); transform-origin: left;"></div>
+                        <div class="strategy-line" style="width: 2px; height: 35%; bottom: -10%; left: 50%; transform: translateX(-50%) rotate(180deg); transform-origin: top;"></div>
+                        <div class="strategy-line" style="width: 2px; height: 35%; top: 50%; left: -10%; transform: translateY(-50%) rotate(-90deg); transform-origin: right;"></div>
+                    </div>
+                    
+                    <div class="bg-[#CDEBFF] p-4 rounded-lg shadow-md w-48 text-center transform md:absolute md:top-0 md:left-1/2 md:-translate-x-1/2 md:-translate-y-full">
+                        <h4 class="font-bold text-[#00509D]">Faculty Development</h4>
+                        <p class="text-sm text-gray-700">Training in AI-powered pedagogy & tools.</p>
+                    </div>
+                    <div class="bg-[#CDEBFF] p-4 rounded-lg shadow-md w-48 text-center transform md:absolute md:top-1/2 md:right-0 md:-translate-y-1/2 md:translate-x-3/4">
+                        <h4 class="font-bold text-[#00509D]">Curriculum Design</h4>
+                        <p class="text-sm text-gray-700">Integrating AI skills across disciplines.</p>
+                    </div>
+                    <div class="bg-[#CDEBFF] p-4 rounded-lg shadow-md w-48 text-center transform md:absolute md:bottom-0 md:left-1/2 md:-translate-x-1/2 md:translate-y-full">
+                        <h4 class="font-bold text-[#00509D]">IT Infrastructure</h4>
+                        <p class="text-sm text-gray-700">Secure systems & AI-powered PCs.</p>
+                    </div>
+                    <div class="bg-[#CDEBFF] p-4 rounded-lg shadow-md w-48 text-center transform md:absolute md:top-1/2 md:left-0 md:-translate-y-1/2 md:-translate-x-3/4">
+                        <h4 class="font-bold text-[#00509D]">Policy Framework</h4>
+                        <p class="text-sm text-gray-700">Ethical, equitable, and secure usage.</p>
+                    </div>
+                 </div>
+            </section>
+
+
+            <div class="grid grid-cols-1 lg:grid-cols-5 gap-12 items-center">
+                <section id="skills" class="lg:col-span-3 bg-white rounded-lg shadow-lg p-6 md:p-8">
+                    <h2 class="text-3xl font-bold text-center text-[#00509D] mb-2">Core Competencies for AI Fluency</h2>
+                    <p class="text-center max-w-2xl mx-auto mb-6 text-gray-600">True fluency combines human-centric skills with technical understanding. It's not just about using the tool, but about using it wisely, creatively, and ethically.</p>
+                    <div class="chart-container h-96 md:h-[450px] max-h-[500px]">
+                        <canvas id="skillsChart"></canvas>
+                    </div>
+                </section>
+                
+                <section id="ethics" class="lg:col-span-2 bg-white rounded-lg shadow-lg p-6 md:p-8 h-full">
+                    <h2 class="text-3xl font-bold text-center text-[#00509D] mb-6">Foundations of Responsible AI</h2>
+                     <p class="text-center mx-auto mb-6 text-gray-600">An ethical framework is non-negotiable for building a trustworthy AI ecosystem on campus.</p>
+                    <ul class="space-y-4">
+                        <li class="flex items-start">
+                            <span class="text-2xl text-[#1E96FC] mr-3">⚖️</span>
+                            <div>
+                                <h4 class="font-bold text-[#00509D]">Equity & Fairness</h4>
+                                <p class="text-gray-600 text-sm">Actively mitigating bias in AI algorithms and ensuring equitable access for all community members.</p>
+                            </div>
+                        </li>
+                        <li class="flex items-start">
+                             <span class="text-2xl text-[#1E96FC] mr-3"> شفاف</span>
+                            <div>
+                                <h4 class="font-bold text-[#00509D]">Transparency</h4>
+                                <p class="text-gray-600 text-sm">Promoting clarity in how AI models are used for decisions affecting students, faculty, and staff.</p>
+                            </div>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-2xl text-[#1E96FC] mr-3">🛡️</span>
+                            <div>
+                                <h4 class="font-bold text-[#00509D]">Security & Privacy</h4>
+                                <p class="text-gray-600 text-sm">Implementing robust data governance and security protocols to protect institutional and personal data.</p>
+                            </div>
+                        </li>
+                         <li class="flex items-start">
+                            <span class="text-2xl text-[#1E96FC] mr-3">🤝</span>
+                            <div>
+                                <h4 class="font-bold text-[#00509D]">Accountability</h4>
+                                <p class="text-gray-600 text-sm">Establishing clear lines of responsibility for the deployment and oversight of AI systems.</p>
+                            </div>
+                        </li>
+                    </ul>
+                </section>
+            </div>
+
+        </main>
+
+        <footer class="text-center py-8 mt-12 border-t border-gray-300">
+             <p class="text-lg font-bold text-[#00509D]">Panelists Leading the Discussion</p>
+            <p class="text-gray-600 max-w-3xl mx-auto mt-2">Insights from Dr. Melanie Hibbert (Barnard College), Dr. Greer Arthur (UNC Chapel Hill), and Dr. Jesse Spencer-Smith (Vanderbilt University), moderated by Chris Harper (Dell Technologies).</p>
+        </footer>
+
+    </div>
+
+    <script>
+        const brilliantBlues = {
+            dark: '#00509D',
+            bright: '#00C6FF',
+            medium: '#1E96FC',
+            light: '#72B5F2',
+            pale: '#CDEBFF',
+            text: '#374151'
+        };
+
+        const chartDefaultOptions = {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+                legend: {
+                    labels: {
+                        color: brilliantBlues.text,
+                        font: {
+                            family: "'Inter', sans-serif"
+                        }
+                    }
+                },
+                tooltip: {
+                    callbacks: {
+                        title: function(tooltipItems) {
+                            const item = tooltipItems[0];
+                            let label = item.chart.data.labels[item.dataIndex];
+                            if (Array.isArray(label)) {
+                              return label.join(' ');
+                            } else {
+                              return label;
+                            }
+                        }
+                    }
+                }
+            }
+        };
+        
+        function wrapLabels(label) {
+            const maxLen = 16;
+            if (typeof label !== 'string' || label.length <= maxLen) {
+                return label;
+            }
+            const words = label.split(' ');
+            let lines = [];
+            let currentLine = '';
+            for (const word of words) {
+                if ((currentLine + ' ' + word).length > maxLen && currentLine.length > 0) {
+                    lines.push(currentLine);
+                    currentLine = word;
+                } else {
+                    currentLine = currentLine ? currentLine + ' ' + word : word;
+                }
+            }
+            lines.push(currentLine);
+            return lines;
+        }
+
+        new Chart(document.getElementById('stakeholderChart'), {
+            type: 'doughnut',
+            data: {
+                labels: ['Faculty', 'Administrative Staff', 'Students', 'IT & Leadership'],
+                datasets: [{
+                    label: 'Campus Community Impacted',
+                    data: [95, 85, 90, 100],
+                    backgroundColor: [
+                        brilliantBlues.medium,
+                        brilliantBlues.bright,
+                        brilliantBlues.light,
+                        brilliantBlues.dark
+                    ],
+                    borderColor: '#FFFFFF',
+                    borderWidth: 2
+                }]
+            },
+            options: {
+                ...chartDefaultOptions,
+                plugins: {
+                    ...chartDefaultOptions.plugins,
+                    title: {
+                        display: true,
+                        text: 'Estimated % of Campus Roles Directly Impacted by AI',
+                        color: brilliantBlues.text,
+                        font: { size: 16 }
+                    }
+                }
+            }
+        });
+
+        new Chart(document.getElementById('adoptionChart'), {
+            type: 'line',
+            data: {
+                labels: ['2022', '2023', '2024', '2025', '2026', '2027', '2028'],
+                datasets: [{
+                    label: 'AI Integration Rate (%)',
+                    data: [20, 35, 50, 65, 75, 80, 85],
+                    fill: true,
+                    backgroundColor: 'rgba(0, 198, 255, 0.2)',
+                    borderColor: brilliantBlues.bright,
+                    tension: 0.4
+                }]
+            },
+            options: {
+                ...chartDefaultOptions,
+                 scales: {
+                    y: {
+                        beginAtZero: true,
+                        max: 100,
+                        ticks: { color: brilliantBlues.text },
+                        grid: { color: '#E5E7EB' }
+                    },
+                    x: {
+                        ticks: { color: brilliantBlues.text },
+                        grid: { color: '#E5E7EB' }
+                    }
+                }
+            }
+        });
+
+        const skillsLabels = ['Data Ethics', 'Critical Thinking & Evaluation', 'Prompt Engineering', 'Domain Expertise Application', 'Collaboration', 'Adaptability'];
+        const wrappedSkillsLabels = skillsLabels.map(wrapLabels);
+
+        new Chart(document.getElementById('skillsChart'), {
+            type: 'radar',
+            data: {
+                labels: wrappedSkillsLabels,
+                datasets: [{
+                    label: 'Skill Importance',
+                    data: [8, 9, 7, 10, 8, 9],
+                    backgroundColor: 'rgba(30, 150, 252, 0.2)',
+                    borderColor: brilliantBlues.medium,
+                    pointBackgroundColor: brilliantBlues.medium,
+                    pointBorderColor: '#fff',
+                    pointHoverBackgroundColor: '#fff',
+                    pointHoverBorderColor: brilliantBlues.medium
+                }]
+            },
+            options: {
+                ...chartDefaultOptions,
+                 scales: {
+                    r: {
+                        angleLines: {
+                            color: '#E5E7EB'
+                        },
+                        grid: {
+                            color: '#E5E7EB'
+                        },
+                        pointLabels: {
+                            font: {
+                                size: 12
+                            },
+                            color: brilliantBlues.text
+                        },
+                        ticks: {
+                            backdropColor: 'rgba(255, 255, 255, 0.75)',
+                            color: brilliantBlues.text
+                        },
+                        beginAtZero: true,
+                        max: 10
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>
+
